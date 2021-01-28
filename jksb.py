@@ -37,7 +37,7 @@ class Log:
         option.add_argument('--no-sandbox')
         option.add_argument('--headless')
 
-        self.wd = webdriver.Chrome(chrome_options=option)
+        self.wd = webdriver.Chrome(options=option)
         self.wd.set_window_size(600, 800)
         if self.loc:
             self.wd.execute_cdp_cmd("Page.setGeolocationOverride", {
