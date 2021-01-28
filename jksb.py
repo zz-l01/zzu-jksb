@@ -26,7 +26,7 @@ class Log:
         self.loc = False
         if 'location' in os.environ:
             self.loc = os.environ['location'].split(',')
-        self.i = 1
+
         option = webdriver.ChromeOptions()
         option.add_experimental_option(
             'mobileEmulation', {'deviceName': 'iPhone X'})
@@ -35,7 +35,7 @@ class Log:
         option.add_argument('--disable-gpu')
         option.add_argument('--disable-dev-shm-usage')
         option.add_argument('--no-sandbox')
-        # option.add_argument('--headless')
+        option.add_argument('--headless')
 
         self.wd = webdriver.Chrome(chrome_options=option)
         self.wd.set_window_size(600, 800)
