@@ -26,7 +26,7 @@ class Log:
         self.loc = False
         if 'location' in os.environ:
             self.loc = os.environ['location'].split(',')
-
+        print(self.loc)
         option = webdriver.ChromeOptions()
         option.add_experimental_option(
             'mobileEmulation', {'deviceName': 'iPhone X'})
@@ -39,9 +39,9 @@ class Log:
 
         self.wd = webdriver.Chrome(options=option)
         self.wd.set_window_size(600, 800)
-        if self.loc:
-            self.wd.execute_cdp_cmd("Page.setGeolocationOverride", {
-                                    "latitude": self.loc[0], "longitude": self.loc[1], "accuracy": 1})
+        #if self.loc:
+        #    self.wd.execute_cdp_cmd("Page.setGeolocationOverride", {
+        #                            "latitude": self.loc[0], "longitude": self.loc[1], "accuracy": 1})
 
     def loginProcesser(self) -> bool:
         self.wd.get('http://jksb.zzu.edu.cn/')
